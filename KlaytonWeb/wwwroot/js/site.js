@@ -15,7 +15,7 @@ $(function () {
     }
 })
 
-var covalentAPI = 'ckey_756a9fcc593742108e6204976ff';
+var covalentAPI = '<COVALENT API>';
 
 const caver = new Caver('https://api.baobab.klaytn.net:8651/');
 
