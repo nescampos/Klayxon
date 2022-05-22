@@ -40,6 +40,11 @@
 @section Scripts
 {
     <script type="text/javascript">
+        var publicKey = localStorage.getItem('publicKey');
+        if(publicKey != null) {
+            location.href = "/Wallet/Index";
+        }
+
         $('#createAccountBtn').click(function() {
             createNewAccount();
             $('#confirmText').css('display','block');
