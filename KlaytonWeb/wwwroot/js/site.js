@@ -197,8 +197,13 @@ function sendTransaction() {
     }
     var publicKey = localStorage.getItem('publicKey');
     var privateKey = localStorage.getItem('privateKey');
-    const keyring = caver.wallet.newKeyring(publicKey, privateKey);
-    caver.wallet.updateKeyring(keyring);
+    var keyring = new caver.wallet.keyring.singleKeyring(publicKey, privateKey);
+    if (caver.wallet.getKeyring(publicKey)) {
+        caver.wallet.updateKeyring(keyring);
+    }
+    else {
+        keyring = caver.wallet.newKeyring(publicKey, privateKey);
+    }
     const vt = caver.transaction.valueTransfer.create({
         from: keyring.address,
         to: recipient,
